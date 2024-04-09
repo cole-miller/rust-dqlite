@@ -7,7 +7,4 @@ links = "dqlite"
 
 [build-dependencies]
 bindgen = { version = "0.69.4", default-features = false }
-system-deps = "6.2.2"
-
-[package.metadata.system-deps]
-dqlite = "1.16.0"
+pkg-config = "0.3.30"
