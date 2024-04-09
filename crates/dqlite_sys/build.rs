@@ -1,9 +1,7 @@
 use std::path::PathBuf;
 
 fn main() {
-    let deps = system_deps::Config::new().probe().unwrap();
-    let dqlite = deps.get_by_name("dqlite").unwrap();
-
+    let dqlite = pkg_config::Config::new().atleast_version("1.16.0").probe("dqlite").unwrap();
     let includes = dqlite.include_paths.iter().map(|path| format!("-I{}", path.to_str().unwrap()));
 
     let bindings = bindgen::builder()
